@@ -118,7 +118,7 @@ ApplicationIo::ApplicationIo(IUserInterface * ui)
 	mexCallMATLAB(1,&a,0,NULL,"gpuDeviceCount");
 	gpuCount = mxGetScalar(a);
 
-	if (gpuCount == 1)
+	if (gpuCount >= 1)
 	{
 		mxInitGPU();
 	}
@@ -569,6 +569,10 @@ void  ApplicationIo::HandleDataAvailable(VitaPacketStreamDataEvent & Event)
 
 		if (!currentVita.isValid())
 		{
+			mxArray *dd;
+			dd = mxCreateDoubleScalar(1);
+			mexPutVariable("base","notok",dd);
+			mxDestroyArray(dd);
 			Log("broke since current vita is not valid!:");
 			break;
 		}
@@ -770,7 +774,7 @@ void ApplicationIo::HandleAfterStop(OpenWire::NotifyEvent & /*Event*/)
 	cntrch1 = 0;
 	cntrch2 = 0;
 
-	if (gpuCount == 1)
+	if (gpuCount >= 1)
 	{
 		// If matlab detects a GPU, move data to gpu for processing
 

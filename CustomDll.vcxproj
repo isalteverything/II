@@ -171,7 +171,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\Common;C:\Innovative\Malibu\Vc11;C:\Program Files %28x86%29\Intel\Composer XE 2013 SP1\mkl\include;C:\Program Files\MATLAB\R2014b\extern\include;C:\Program Files\MATLAB\R2014b\toolbox\distcomp\gpu\extern\include\gpu\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Common;C:\Innovative\Malibu\Vc11;C:\Program Files %28x86%29\Intel\Composer XE 2013 SP1\mkl\include;C:\Program Files\MATLAB\R2014a\extern\include;C:\Program Files\MATLAB\R2014a\toolbox\distcomp\gpu\extern\include\gpu\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_WINDOWS;_AFXDLL;CUSTOM_DEVICE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -182,7 +182,7 @@
       <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>c:\Innovative\Lib\Vc11_x64;c:\Innovative\Lib\Vc_Ipp_x64;C:\Program Files\MATLAB\R2014b\lib\win64;C:\Program Files\MATLAB\R2014b\extern\lib\win64\microsoft\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>c:\Innovative\Lib\Vc11_x64;c:\Innovative\Lib\Vc_Ipp_x64;C:\Program Files\MATLAB\R2014a\lib\win64;C:\Program Files\MATLAB\R2014a\extern\lib\win64\microsoft\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ForceSymbolReferences>_DllMainCRTStartup;%(ForceSymbolReferences)</ForceSymbolReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -196,14 +196,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Common\ApplicationIo.cpp" />
-    <ClCompile Include="..\Common\ModuleIo.cpp" />
+    <ClCompile Include="Common\ApplicationIo.cpp" />
+    <ClCompile Include="Common\ModuleIo.cpp" />
     <ClCompile Include="DllFtn.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Common\ApplicationIo.h" />
+    <ClInclude Include="Common\ModuleIo.h" />
     <ClInclude Include="CustomDeviceDll.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
